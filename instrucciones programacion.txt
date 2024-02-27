@@ -1,0 +1,142 @@
+
+
+Pasos para crear un backend en django
+
+-instalo anaconda (verifico que tenga instalado django , django rest_framework )
+
+-en caso de no estar instalado lo instalo con el comando:
+	pip install djangorestframework
+
+-creo una carpeta donde voy a crear el proyecto con el siguiente comando:
+	mkdir carpetaname
+
+-me ubico en la carpeta antes de seguir
+
+-creo un entorno virtual con el siguiente comando:
+	conda create -n entornoname
+
+-activo el entorno virtual con el siguiente comando:
+	conda activate entornoname
+
+-creo un proyecto de django con el siguiente comando:
+	django-admin startproject proyectoname
+
+-creo una app con el nombre del proyecto con el siguiente comando:
+	python manage.py startapp appname
+
+-creo la base de datos con el siguiente comando:
+	python manage.py makemigrations
+
+-realizo la base de datos con el siguiente comando:
+	python manage.py migrate
+
+-creo un superusuario con el siguiente comando:
+	python manage.py createsuperuser
+
+-arranco el servidor con el siguiente comando:
+	python manage.py runserver
+
+
+
+
+
+
+-creo los modelos según las tablas que tengo en mi diagrama
+	
+class Cuenta (models.Model):
+	impuesto = models.ForeignKey(Impuesto,on_delete=models.CASCADE, 	related_name='impuesto')
+	fechaVencimiento = models.DateField()
+	fechaPago = models.DateField()
+	importePagar = models.FloatField()
+	importePagado = models.FloatField()
+	cantidadCuotas = models.IntegerField()
+
+	def __str__(self) :
+		return str(self.impuesto)
+
+
+-registro los modelos en el archivo admin.py
+
+from django.contrib import admin
+from cuenta.models import Cuenta
+
+# Register your models here.
+
+admin.site.register(Cuenta)
+
+
+-registro la app en el archivo setting.py
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'cuenta',
+    'impuesto',
+    'rest_framework',
+]
+
+-creo una carpeta llamada api y adentro creo un archivo llamado serializers.py
+
+ from rest_framework import serializers
+from cuenta.models import Cuenta
+
+class CuentaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model   = Cuenta
+        fields  = "__all__"
+
+
+
+
+-adentro de la carpeta api tambien creo un archivo llamado views
+
+from rest_framework import generics
+from cuenta.api.serializers import CuentaSerializer
+from cuenta.models import Cuenta
+
+class CuentaList(generics.ListCreateAPIView):
+    queryset            = Cuenta.objects.all()
+    serializer_class    = CuentaSerializer
+
+class CuentaDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset            = Cuenta.objects.all()
+    serializer_class    = CuentaSerializer
+
+
+-adentro de la carpeta api tambien creo un archivo llamado urls
+
+from django.urls import path
+from cuenta.api.views import CuentaList,CuentaDetail
+
+urlpatterns = [
+    path('list/',CuentaList.as_view(), name='cuentalist'),
+    path('<int:pk>', CuentaDetail.as_view())
+]
+
+-modifico el url.py general
+
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('cuenta/',include('cuenta.api.urls')),
+]
+
+-realizo makemigrations y migrate y queda listo el backend
+
+
+
+
+
+INSTALAR DEPENDENCIAS CUANDO COMPARTO O ME COMPARTEN UN PROYECTO DJANGO
+
+con este comando guardo las dependencias que tengo en el proyecto 
+pip freeze  > requirements.txt
+
+con este comando instalo las dependencias que estan dentro del txt
+pip install -r requirements.txt

@@ -1,0 +1,72 @@
+git instrucciones
+
+GIT
+
+token 
+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
+
+configurar un repositorio para que se conecte con el  remoto
+git init
+git config user.name
+git config user.email
+git config user.password
+git init 
+git add . 
+git commit -m "mi tarea" 
+git remote add origin https://github.com/tucajas/hogar.git 
+git push origin master 
+
+
+
+-inicio sesion en github  y creo un nuevo repositorio
+
+git init 
+git add . 
+git commit -m "mi tarea" 
+git remote add origin https://github.com/tucajas/hogar.git 
+git push origin master 
+
+para cambiar de rama 
+git checkout <nombredelarama>
+
+para agregar el cambio cambio 
+ 
+git add .  (puedo hacer git add <nombredelarchivo> pero . Agrega todo) 
+
+para deshacer un add 
+git reset HEAD <nombredelarchivo>
+
+para borrar un archivo del repositorio
+git rm <nombredelarchivo>
+
+para hacer un commit
+
+git commit –m “nombredelcomit”
+
+para hacer un push
+git push origin <nombredelarama> (generalmente es master, osea seria git push origin master)
+
+
+para ver cuantos servidores remotos tengo
+git remote 
+
+para ver la direccion web que le fue asignada 
+
+git remote -v
+
+para hacer un pull y traer los cambios hechos por otra persona o si se hizo edicion en la web del repositorio editando.
+git pull origin <nombrerama>
+
+para crear rama
+git checkout <nombredelarama>
+
+git branch <nombredelarama>
+
+para eliminar rama
+git branch -d <nombredelarama>
+
+para crear una rama y que automaticamente me cambie ahi
+git checkout -b <nombredelarama>
+
+para ver los logs de todas las ramas
+git log --graph --decorate --online  --all

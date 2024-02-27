@@ -1,0 +1,28 @@
+﻿Preparo la pc para desarrollo
+
+1-visual studio code plugins instalados [
+-Angular Essentials (Version 16) John Papa
+-Angular Language Service v17.2.2 Angular.io
+-Angular Snippets (Version 16)v16.0.1 johnpapa.net
+-Dev Containersv0.338.1 Microsoft microsoft.com
+-Django v1.15.0 Baptiste Darthenay
+-Dockerv1.29.0 Microsoft microsoft.com
+-ESLintv2.4.4 Microsoft microsoft.com
+-Material Icon Themev4.33.0 Philipp Kief pkief.com
+-One Dark Prov3.16.2 binaryify
+-Palenight Themev2.0.3 Olaolu Olawuyi
+-Peacockv4.2.2 John Papa johnpapa.net
+-Postmanv0.18.0 Postman postman.com
+-Prettier - Code formatterv10.1.0 Prettier prettier.io
+-Pylancev2024.2.2 Microsoft microsoft.com
+-Pythonv2024.0.1 Microsoft microsoft.com
+-Python Debuggerv2024.0.0 Microsoft microsoft.com
+-Spanish Language Pack for Visual Studio Codev1.85.2024021409 Microsoft
+-Winter is Coming Themev1.4.4 John Papa johnpapa.net
+2-postman
+3-anaconda
+4-github
+5-angular
+6-angular material
+7-bootstrap
+8-acceso directo a chatgpt
