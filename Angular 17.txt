@@ -1,0 +1,67 @@
+Angular 17
+
+creo un proyecto
+ng new hogarFront
+
+acepto que se use css
+css
+
+acepto que tenga el sender rendering
+sender rendering = yes
+
+elimino todo menos el router outlet de la pagina app component html
+
+genero componentes
+ng g c pages/home
+
+genero un servicio
+ng g s services/api
+
+configuro router
+export const routes: Routes = [
+
+    {path:'',component: HomeComponent},
+    {path:'gastos',component: GastosComponent},
+    {path:'gastosDetail',component: GastoDetailComponent},
+    {path:'contact',component:ContactComponent},
+    {path:'**', redirectTo:'', pathMatch:'full'}
+];
+
+instalo bootstrap con el link que te provee la pagina oficial
+npm i bootstrap@5.3.3
+
+copio del archivo module la direccion relativa y la pego en angular.json tango css como el js
+node_modules/bootstrap/dist/js/bootstrap.min.js
+
+busco una barra de navegacion en bootstrap
+
+puse en negro el snavbar 
+
+tengo que poner en el import del archivo app.component.ts las importaciones de commonModule para usar el ng , el routerlink,y el router outlet
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet,RouterLink],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+
+  menuOption : string ="";
+  title = 'hogarFront';
+
+  onOption(menuOption:string){
+    this.menuOption = menuOption
+  }
+}
+
+creo un string llamado menuOption el cual se va a llenar del valor seleccionado en el select y asi quedar activo
+
+en el home creo titulo y subtitulo y busco una imagen desde la pagina pexels.com
+
+
+
+
+
+
+
