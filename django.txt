@@ -140,3 +140,9 @@ pip freeze  > requirements.txt
 
 con este comando instalo las dependencias que estan dentro del txt
 pip install -r requirements.txt
+
+
+instalar cors 
+en app instaladas 'corsheaders'
+
+agregar las direcciones allow del front end para q no sean bloqueadas

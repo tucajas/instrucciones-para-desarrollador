@@ -59,6 +59,11 @@ creo un string llamado menuOption el cual se va a llenar del valor seleccionado 
 
 en el home creo titulo y subtitulo y busco una imagen desde la pagina pexels.com
 
+en app.config cuando pongo el provider httpcliente tengo que agregarle withfetch porque sino no lee django y sale como bloqueado por cors
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(routes), provideClientHydration(), provideAnimationsAsync(),provideHttpClient(withFetch())]
+};
+
 
 
 
